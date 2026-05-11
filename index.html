@@ -18,651 +18,116 @@
             --font-body: 'Poppins', sans-serif;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-cream); font-family: var(--font-body); color: var(--text-dark); line-height: 1.5; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        body {
-            background-color: var(--bg-cream);
-            font-family: var(--font-body);
-            color: var(--text-dark);
-            line-height: 1.5;
-            overflow-x: hidden;
-        }
+        /* Announcement Bar */
+        .top-bar { background-color: #F8D7E0; display: flex; justify-content: space-around; padding: 10px; font-size: 12px; font-weight: 500; border-bottom: 1px solid #EED1D9; }
 
-        .container {
-            max-width: 1250px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* --- 1. TOP ANNOUNCEMENT BAR --- */
-        .top-bar {
-            background-color: #F8D7E0;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 10px 20px;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-dark);
-            border-bottom: 1px solid #EED1D9;
-        }
-        .top-bar-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .top-bar-item svg { width: 14px; height: 14px; stroke: var(--text-dark); }
-
-        /* --- 2. HEADER & NAVBAR --- */
+        /* Navbar */
         header { padding: 15px 0; }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo-container {
-            width: 160px;
-            height: 60px;
-            display: block;
-            border-radius: 30px;
-            overflow: hidden;
-            border: 2px solid #4A3B32;
-        }
-        .logo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 28px;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 13px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: 0.2s;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--primary-pink);
-        }
-        .nav-links a.active {
-            border-bottom: 2px solid var(--primary-pink);
-            padding-bottom: 4px;
-        }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo-img { height: 55px; width: auto; object-fit: contain; }
+        .nav-links { display: flex; list-style: none; gap: 25px; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-size: 13px; font-weight: 500; text-transform: uppercase; }
+        .nav-links a.active { color: var(--primary-pink); border-bottom: 2px solid var(--primary-pink); padding-bottom: 4px; }
         
-        /* EXACT CART & USER ICON IMPLEMENTATION */
-        .nav-icons {
-            display: flex;
-            align-items: center;
-            gap: 22px;
-        }
-        .icon-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--text-dark);
-            transition: 0.2s;
-        }
-        .icon-wrapper:hover { color: var(--primary-pink); }
-        .icon-wrapper svg {
-            width: 24px;
-            height: 24px;
-            stroke-width: 1.5;
-        }
-        .cart-badge {
-            position: absolute;
-            top: -6px;
-            right: -8px;
-            background-color: var(--primary-pink);
-            color: #ffffff;
-            font-size: 10px;
-            font-weight: 700;
-            font-family: var(--font-body);
-            width: 17px;
-            height: 17px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
+        .nav-icons { display: flex; gap: 20px; align-items: center; }
+        .icon-cart { position: relative; cursor: pointer; }
+        .cart-badge { position: absolute; top: -8px; right: -10px; background: var(--primary-pink); color: white; font-size: 10px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
 
-        /* --- 3. HERO SECTION --- */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 40px 0 60px 0;
-            gap: 40px;
-        }
-        .hero-left {
-            flex: 1;
-            max-width: 520px;
-        }
-        .hero-title {
-            font-family: var(--font-head);
-            font-size: 68px;
-            line-height: 1.05;
-            color: var(--primary-pink);
-            font-style: italic;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        .hero-title span {
-            color: #3A3330;
-            font-style: normal;
-        }
-        .hero-desc {
-            font-size: 15px;
-            color: var(--text-muted);
-            margin-bottom: 35px;
-            max-width: 420px;
-        }
-        .btn-group {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 45px;
-        }
-        .btn {
-            padding: 14px 30px;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: 0.3s;
-            text-align: center;
-        }
-        .btn-pink {
-            background-color: var(--primary-pink);
-            color: #fff;
-            border: 1px solid var(--primary-pink);
-            box-shadow: 0 4px 15px rgba(224, 74, 107, 0.2);
-        }
-        .btn-pink:hover { background-color: #C83957; }
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary-pink);
-            border: 1px solid var(--primary-pink);
-        }
-        .btn-outline:hover { background-color: var(--primary-pink); color: #fff; }
-        
-        .hero-features {
-            display: flex;
-            gap: 30px;
-        }
-        .feature-item {
-            text-align: center;
-            font-size: 11px;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-        .feature-item svg {
-            width: 30px;
-            height: 30px;
-            margin-bottom: 8px;
-            stroke: var(--primary-pink);
-            fill: none;
-            stroke-width: 1.5;
-        }
-        .hero-right {
-            flex: 1.2;
-            display: flex;
-            justify-content: flex-end;
-        }
-        .hero-main-img {
-            width: 100%;
-            max-width: 650px;
-            height: 450px;
-            object-fit: cover;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
+        /* Hero Section */
+        .hero { display: flex; align-items: center; padding: 50px 0; gap: 40px; }
+        .hero-left { flex: 1; }
+        .hero-title { font-family: var(--font-head); font-size: 65px; line-height: 1.1; color: var(--primary-pink); font-style: italic; margin-bottom: 20px; }
+        .hero-title span { color: #3A3330; font-style: normal; }
+        .hero-desc { font-size: 16px; color: var(--text-muted); margin-bottom: 30px; max-width: 450px; }
+        .btn-pink { background: var(--primary-pink); color: white; padding: 14px 28px; border-radius: 4px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 13px; display: inline-block; border: 1px solid var(--primary-pink); }
+        .btn-outline { background: transparent; color: var(--primary-pink); padding: 14px 28px; border-radius: 4px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 13px; display: inline-block; border: 1px solid var(--primary-pink); margin-left: 10px; }
+        .hero-features { display: flex; gap: 30px; margin-top: 40px; }
+        .feat-box { text-align: center; font-size: 11px; color: var(--text-muted); font-weight: 500; }
+        .hero-right img { width: 100%; max-width: 600px; border-radius: 12px; }
 
-        /* --- SECTION TITLES --- */
-        .section-title {
-            text-align: center;
-            font-family: var(--font-head);
-            font-size: 22px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #4A3B32;
-            margin: 70px 0 35px 0;
-            position: relative;
-        }
-        .section-title-divider {
-            width: 40px;
-            height: 2px;
-            background-color: #D1C7BD;
-            margin: 8px auto 0 auto;
-        }
+        /* Flow Cards Section - Modified as per request */
+        .section-title { text-align: center; font-family: var(--font-head); font-size: 24px; text-transform: uppercase; margin: 60px 0 30px; letter-spacing: 1px; }
+        .flow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .flow-card-container { position: relative; border-radius: 12px; overflow: hidden; height: 260px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .flow-card-img { width: 100%; height: 100%; object-fit: cover; }
+        .flow-btn-overlay { position: absolute; bottom: 25px; left: 25px; background: #E04A6B; color: white; padding: 8px 20px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+        /* Specific colors for overlay buttons to match card themes */
+        .btn-light { background: #52A388; }
+        .btn-medium { background: #D65A75; }
+        .btn-heavy { background: #8E5DA8; }
 
-        /* --- 4. FLOW CARDS SECTION --- */
-        .flow-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 70px;
-        }
-        .flow-card {
-            border-radius: 12px;
-            padding: 30px 25px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 240px;
-            border: 1px solid;
-        }
-        .flow-card.light { background-color: #E8F7F2; border-color: #BEE3D9; }
-        .flow-card.medium { background-color: #FFEFF2; border-color: #FFC4D0; }
-        .flow-card.heavy { background-color: #F4EFFB; border-color: #D9C3F0; }
-        
-        .flow-card h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .flow-card.light h3 { color: #2D7A60; }
-        .flow-card.medium h3 { color: #A8324D; }
-        .flow-card.heavy h3 { color: #6A438C; }
-        
-        .flow-card p {
-            font-size: 12px;
-            color: var(--text-muted);
-            max-width: 55%;
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-        .btn-learn {
-            align-self: flex-start;
-            padding: 8px 18px;
-            font-size: 11px;
-            border-radius: 4px;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .flow-card.light .btn-learn { background-color: #52A388; }
-        .flow-card.medium .btn-learn { background-color: #D65A75; }
-        .flow-card.heavy .btn-learn { background-color: #8E5DA8; }
-        
-        .flow-card-img {
-            position: absolute;
-            right: -15px;
-            bottom: -15px;
-            width: 160px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
+        /* Education Blogs */
+        .edu-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 60px; }
+        .edu-card { background: white; border-radius: 8px; overflow: hidden; border: 1px solid #EEE; display: flex; flex-direction: column; }
+        .edu-card img { width: 100%; height: 140px; object-fit: cover; }
+        .edu-content { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .edu-tag { color: var(--primary-pink); font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 5px; }
+        .edu-text { font-size: 13px; font-weight: 500; line-height: 1.3; margin-bottom: 15px; }
+        .edu-card.quiz { background: #FFF3F5; border: 1px solid #FFCCD5; text-align: center; align-items: center; justify-content: center; padding: 20px; }
 
-        /* --- 5. EDUCATION & BLOG GRID --- */
-        .edu-wrapper {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            align-items: stretch;
-            margin-bottom: 70px;
-        }
-        .edu-card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #F0EAE1;
-        }
-        .edu-img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
-        .edu-info {
-            padding: 16px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .edu-title {
-            font-size: 11px;
-            color: var(--primary-pink);
-            text-transform: uppercase;
-            font-weight: 600;
-            margin-bottom: 6px;
-            letter-spacing: 0.5px;
-        }
-        .edu-desc {
-            font-size: 13px;
-            color: var(--text-dark);
-            margin-bottom: 15px;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-        .edu-link {
-            font-size: 11px;
-            color: var(--primary-pink);
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        
-        /* Quiz Highlight Card */
-        .quiz-card {
-            background-color: #FFF3F5;
-            border: 1px solid #FFCCD5;
-            border-radius: 8px;
-            padding: 30px 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .quiz-card h4 {
-            font-size: 16px;
-            color: var(--primary-pink);
-            margin-bottom: 15px;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        .quiz-card p {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
+        /* Pain Relief */
+        .pain-relief-sec { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; gap: 20px; }
+        .relief-item { text-align: center; flex: 1; }
+        .relief-circle { width: 110px; height: 110px; border-radius: 50%; overflow: hidden; margin: 0 auto 15px; border: 3px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .relief-circle img { width: 100%; height: 100%; object-fit: cover; }
+        .relief-item h5 { font-size: 12px; text-transform: uppercase; margin-bottom: 5px; }
+        .relief-item p { font-size: 11px; color: var(--text-muted); }
+        .side-banner { width: 250px; background: #F8D7E0; border-radius: 12px; padding: 30px 20px; text-align: center; }
+        .side-banner h4 { font-family: var(--font-head); font-style: italic; color: #555; margin-bottom: 15px; }
+        .side-banner img { width: 100%; border-radius: 8px; }
 
-        /* --- 6. NATURAL PAIN RELIEF --- */
-        .relief-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 70px;
-        }
-        .relief-items {
-            display: flex;
-            justify-content: space-between;
-            flex: 1;
-            gap: 15px;
-        }
-        .relief-box {
-            text-align: center;
-            flex: 1;
-            max-width: 140px;
-        }
-        .relief-img-container {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            margin: 0 auto 12px auto;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border: 3px solid #fff;
-        }
-        .relief-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .relief-box h5 {
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-            color: var(--text-dark);
-        }
-        .relief-box p {
-            font-size: 11px;
-            color: var(--text-muted);
-            line-height: 1.3;
-        }
-        .relief-banner {
-            background-color: #F8D7E0;
-            border-radius: 12px;
-            padding: 30px 20px;
-            width: 240px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .relief-banner h4 {
-            font-family: var(--font-head);
-            font-size: 18px;
-            line-height: 1.3;
-            color: #555;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-        .relief-banner img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
+        /* Inside Box Section */
+        .inside-box-sec { background: white; border-radius: 15px; padding: 40px; display: flex; align-items: center; gap: 50px; margin-bottom: 80px; border: 1px solid #F0EAE1; }
+        .inside-box-img { width: 40%; border-radius: 10px; object-fit: cover; }
+        .inside-content { flex: 1; }
+        .inside-logo { height: 40px; margin-bottom: 15px; } /* Added Logo Here */
+        .inside-content h3 { font-family: var(--font-head); font-size: 24px; text-transform: uppercase; margin-bottom: 20px; }
+        .inside-list { list-style: none; }
+        .inside-list li { margin-bottom: 12px; font-size: 14px; color: var(--text-muted); display: flex; align-items: center; gap: 10px; }
+        .inside-list li::before { content: '✓'; color: var(--primary-pink); font-weight: bold; }
 
-        /* --- 7. BOTTOM ECOSYSTEM (BOX + TESTIMONIALS SPLIT) --- */
-        .bottom-ecosystem {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 90px;
-            align-items: stretch;
-        }
-        
-        /* Left Column: Whats Inside */
-        .whats-inside-wrapper {
-            flex: 1.1;
-            background: #fff;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.03);
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            border: 1px solid #F0EAE1;
-        }
-        .box-preview-img {
-            width: 220px;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .whats-inside-content h3 {
-            font-family: var(--font-head);
-            font-size: 20px;
-            margin-bottom: 18px;
-            color: var(--text-dark);
-            line-height: 1.2;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .inside-list { list-style: none; margin-bottom: 20px; }
-        .inside-list li {
-            font-size: 12px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-        .inside-list li svg {
-            width: 16px;
-            height: 16px;
-            stroke: var(--primary-pink);
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        /* Right Column: Testimonials */
-        .testimonials-wrapper {
-            flex: 1.3;
-            background: #fff;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border: 1px solid #F0EAE1;
-        }
-        .testimonials-wrapper h3 {
-            font-family: var(--font-head);
-            font-size: 18px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-        }
-        .test-cards-row {
-            display: flex;
-            gap: 15px;
-            height: 100%;
-        }
-        .test-card {
-            background: var(--bg-cream);
-            padding: 18px 15px;
-            border-radius: 8px;
-            font-size: 11px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex: 1;
-        }
-        .stars { color: #E04A6B; font-size: 14px; margin-bottom: 10px; letter-spacing: 1px; }
-        .test-text { color: var(--text-dark); font-style: italic; margin-bottom: 15px; line-height: 1.4; }
-        .test-author { display: flex; align-items: center; gap: 10px; font-weight: 600; color: #4A3B32; }
-        .test-author img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
-
-        /* --- 8. FOOTER --- */
-        footer {
-            background-color: var(--bg-cream);
-            border-top: 1px solid #EAE2D5;
-            padding: 70px 0 50px 0;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1.3fr 1.5fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        .footer-logo-text {
-            font-family: var(--font-head);
-            font-size: 32px;
-            color: var(--primary-pink);
-            font-weight: bold;
-            font-style: italic;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-        .footer-col h5 {
-            font-size: 13px;
-            color: var(--text-dark);
-            margin-bottom: 18px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-        }
+        /* Footer */
+        footer { background: var(--bg-cream); border-top: 1px solid #EAE2D5; padding: 60px 0; font-size: 12px; color: var(--text-muted); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr 1.5fr; gap: 30px; }
+        .f-logo { font-family: var(--font-head); font-size: 30px; color: var(--primary-pink); font-weight: bold; font-style: italic; margin-bottom: 15px; }
+        .footer-col h5 { color: var(--text-dark); margin-bottom: 15px; text-transform: uppercase; }
         .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 10px; }
-        .footer-col ul li a { text-decoration: none; color: var(--text-muted); transition: 0.2s; }
-        .footer-col ul li a:hover { color: var(--primary-pink); }
-        
-        .newsletter-form { display: flex; margin-top: 15px; }
-        .newsletter-form input {
-            padding: 12px;
-            border: 1px solid #DCD5C9;
-            border-radius: 4px 0 0 4px;
-            outline: none;
-            width: 100%;
-            font-size: 12px;
-            background: #fff;
-        }
-        .newsletter-form button {
-            border-radius: 0 4px 4px 0;
-            padding: 12px 20px;
-            font-size: 12px;
-            border: none;
-        }
-        .footer-social { display: flex; gap: 15px; margin-top: 20px; }
-        .footer-social svg { width: 18px; height: 18px; fill: var(--text-muted); cursor: pointer; transition: 0.2s; }
-        .footer-social svg:hover { fill: var(--primary-pink); }
-        .footer-bottom { text-align: center; border-top: 1px solid #EAE2D5; padding-top: 25px; margin-top: 25px; }
+        .footer-col li { margin-bottom: 8px; }
+        .news-input { display: flex; margin-top: 15px; }
+        .news-input input { padding: 10px; border: 1px solid #DDD; width: 100%; border-radius: 4px 0 0 4px; outline: none; }
+        .news-input button { background: var(--primary-pink); color: white; border: none; padding: 10px 15px; border-radius: 0 4px 4px 0; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
-        <div class="top-bar-item">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" /></svg>
-            <span>Free Shipping on all orders</span>
-        </div>
-        <div class="top-bar-item">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
-            <span>Made for Indian Cycles</span>
-        </div>
-        <div class="top-bar-item">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-            <span>100% Safe & Rash-Free</span>
-        </div>
+        <span>⭐ Free Shipping on all orders</span>
+        <span>♡ Made for Indian Cycles</span>
+        <span>🛡️ 100% Safe & Rash-Free</span>
     </div>
 
     <div class="container">
         <header>
             <nav class="navbar">
-                <a href="#" class="logo-container">
-                    <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="FemFlow Logo">
-                </a>
-                
+                <img src="https://lh3.googleusercontent.com/d/1IFyCf398asNx1krp73AbsKtdFid2_E_-" class="logo-img" alt="Logo">
                 <ul class="nav-links">
                     <li><a href="#" class="active">Home</a></li>
                     <li><a href="#">About Us</a></li>
-                    <li><a href="#">Period Care ﹀</a></li>
-                    <li><a href="#">Pain Relief ﹀</a></li>
+                    <li><a href="#">Period Care</a></li>
+                    <li><a href="#">Pain Relief</a></li>
                     <li><a href="#">Flow Quiz</a></li>
                     <li><a href="#">Shop</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
-
                 <div class="nav-icons">
-                    <div class="icon-wrapper">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                        </svg>
-                    </div>
-                    <div class="icon-wrapper">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                        </svg>
+                    <span>👤</span>
+                    <div class="icon-cart">
+                        <span>🛒</span>
                         <span class="cart-badge">0</span>
                     </div>
                 </div>
@@ -673,222 +138,122 @@
             <div class="hero-left">
                 <h1 class="hero-title"><span>One Pack.</span><br>Every Flow.</h1>
                 <p class="hero-desc">A smart, cycle-based period care system designed for every phase of your flow.</p>
-                <div class="btn-group">
-                    <a href="#" class="btn btn-pink">Explore Your Flow</a>
-                    <a href="#" class="btn btn-outline">Shop Now</a>
-                </div>
+                <a href="#" class="btn-pink">Explore Your Flow</a>
+                <a href="#" class="btn-outline">Shop Now</a>
                 <div class="hero-features">
-                    <div class="feature-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104h4.5m-4.5 0a.75.75 0 0 1 .75.75v3.313a1 1 0 0 0 .151.527l3.197 5.116a1 1 0 0 1 .152.527v3.909c0 1.042-.841 1.875-1.875 1.875H8.25a1.875 1.875 0 0 1-1.875-1.875v-3.909a1 1 0 0 1 .152-.527l3.197-5.116a1 1 0 0 0 .151-.527V3.854a.75.75 0 0 1 .75-.75Z" /></svg><br>Chemical<br>Free
-                    </div>
-                    <div class="feature-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><br>Rash-Free<br>Comfort
-                    </div>
-                    <div class="feature-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2.25c-1.25 3-5.25 6.5-5.25 10.5a5.25 5.25 0 0 0 10.5 0c0-4-4-7.5-5.25-10.5Z" /></svg><br>Super<br>Absorbent
-                    </div>
-                    <div class="feature-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg><br>Made in<br>India
-                    </div>
+                    <div class="feat-box">🧪<br>Chemical Free</div>
+                    <div class="feat-box">🌿<br>Rash-Free</div>
+                    <div class="feat-box">💧<br>Super Absorbent</div>
+                    <div class="feat-box">🇮🇳<br>Made in India</div>
                 </div>
             </div>
             <div class="hero-right">
-                <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="FemFlow Pack Box" class="hero-main-img">
+                <img src="https://lh3.googleusercontent.com/d/1jxAsW_3TFJMC0oR9dp_0q8NhCh2YoSSr" alt="Main Box">
             </div>
         </section>
 
-        <h2 class="section-title">Designed For Your Unique Flow<div class="section-title-divider"></div></h2>
-
+        <h2 class="section-title">Designed For Your Unique Flow</h2>
         <section class="flow-grid">
-            <div class="flow-card light">
-                <div>
-                    <h3>🌿 Light Flow</h3>
-                    <p>For start & end days<br>Ultra-thin comfort</p>
-                </div>
-                <a href="#" class="btn-learn">Learn More</a>
-                <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Light Flow Pad" class="flow-card-img">
+            <div class="flow-card-container">
+                <img src="https://lh3.googleusercontent.com/d/1MaD-gJ-csH9CUCQkrx-D9VbzyDCqJHRI" class="flow-card-img">
+                <a href="#" class="flow-btn-overlay btn-light">Learn More</a>
             </div>
-
-            <div class="flow-card medium">
-                <div>
-                    <h3>🌸 Medium Flow</h3>
-                    <p>For regular days<br>Balanced protection</p>
-                </div>
-                <a href="#" class="btn-learn">Learn More</a>
-                <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Medium Flow Pad" class="flow-card-img">
+            <div class="flow-card-container">
+                <img src="https://lh3.googleusercontent.com/d/1qM4urGv5BPLuKFaB4A353oIoTe28TmRR" class="flow-card-img">
+                <a href="#" class="flow-btn-overlay btn-medium">Learn More</a>
             </div>
-
-            <div class="flow-card heavy">
-                <div>
-                    <h3>🌺 Heavy Flow</h3>
-                    <p>For heavy days<br>Maximum absorbency</p>
-                </div>
-                <a href="#" class="btn-learn">Learn More</a>
-                <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Heavy Flow Pad" class="flow-card-img">
+            <div class="flow-card-container">
+                <img src="https://lh3.googleusercontent.com/d/1-VwQN8zLWh19k720t5abnIwA84Ylvj9i" class="flow-card-img">
+                <a href="#" class="flow-btn-overlay btn-heavy">Learn More</a>
             </div>
         </section>
 
-        <h2 class="section-title">Period Care & Education<div class="section-title-divider"></div></h2>
-
-        <section class="edu-wrapper">
+        <h2 class="section-title">Period Care & Education</h2>
+        <section class="edu-grid">
             <div class="edu-card">
-                <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Period Care Tips" class="edu-img">
-                <div class="edu-info">
-                    <div>
-                        <div class="edu-title">Period Care Tips</div>
-                        <p class="edu-desc">Essential hygiene tips for a happy & healthy you.</p>
-                    </div>
-                    <a href="#" class="edu-link">READ MORE →</a>
+                <img src="https://lh3.googleusercontent.com/d/1NU5jxXZDpW20335ou-V-wB_zgA_lFUFc">
+                <div class="edu-content">
+                    <div class="edu-tag">Period Care Tips</div>
+                    <div class="edu-text">Essential hygiene tips for a happy & healthy you.</div>
+                    <a href="#" style="color: #E04A6B; font-size: 11px; font-weight: 700; text-decoration: none;">READ MORE →</a>
                 </div>
             </div>
-
             <div class="edu-card">
-                <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Understand Cycle" class="edu-img">
-                <div class="edu-info">
-                    <div>
-                        <div class="edu-title">Understand Your Cycle</div>
-                        <p class="edu-desc">Learn about your body, hormones & flow changes.</p>
-                    </div>
-                    <a href="#" class="edu-link">READ MORE →</a>
+                <img src="https://lh3.googleusercontent.com/d/1naZOIy5Puw6pv2DyvevGTJD30EPG9Pdm">
+                <div class="edu-content">
+                    <div class="edu-tag">Understand Your Cycle</div>
+                    <div class="edu-text">Learn about your body, hormones & flow changes.</div>
+                    <a href="#" style="color: #E04A6B; font-size: 11px; font-weight: 700; text-decoration: none;">READ MORE →</a>
                 </div>
             </div>
-
             <div class="edu-card">
-                <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Diet & Nutrition" class="edu-img">
-                <div class="edu-info">
-                    <div>
-                        <div class="edu-title">Diet & Nutrition</div>
-                        <p class="edu-desc">Foods that help reduce bloating & fatigue.</p>
-                    </div>
-                    <a href="#" class="edu-link">READ MORE →</a>
+                <img src="https://lh3.googleusercontent.com/d/1ICsHRtufGUk7pi-EIZlgfUXqoYH1pk8R">
+                <div class="edu-content">
+                    <div class="edu-tag">Diet & Nutrition</div>
+                    <div class="edu-text">Foods that help reduce bloating & fatigue.</div>
+                    <a href="#" style="color: #E04A6B; font-size: 11px; font-weight: 700; text-decoration: none;">READ MORE →</a>
                 </div>
             </div>
-
             <div class="edu-card">
-                <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Self Care" class="edu-img">
-                <div class="edu-info">
-                    <div>
-                        <div class="edu-title">Self Care</div>
-                        <p class="edu-desc">Simple self-care tips for your best days.</p>
-                    </div>
-                    <a href="#" class="edu-link">READ MORE →</a>
+                <img src="https://lh3.googleusercontent.com/d/1xdcmBTM7w2QVjB5q-3nvu5nWhfXLfU4S">
+                <div class="edu-content">
+                    <div class="edu-tag">Self Care</div>
+                    <div class="edu-text">Simple self-care tips for your best days.</div>
+                    <a href="#" style="color: #E04A6B; font-size: 11px; font-weight: 700; text-decoration: none;">READ MORE →</a>
                 </div>
             </div>
-
-            <div class="quiz-card">
-                <h4>FLOW QUIZ</h4>
-                <p>Not sure which flow is yours?<br><br>Take our quick quiz and find out!</p>
-                <a href="#" class="btn btn-pink" style="width:100%; padding: 12px 0;">Take Quiz Now</a>
+            <div class="edu-card quiz">
+                <h4 style="color: #E04A6B; margin-bottom: 10px;">FLOW QUIZ</h4>
+                <p style="font-size: 12px; margin-bottom: 15px;">Not sure which flow is yours?</p>
+                <a href="#" class="btn-pink" style="padding: 10px 15px; font-size: 11px;">Take Quiz Now</a>
             </div>
         </section>
 
-        <h2 class="section-title">Natural Pain Relief<div class="section-title-divider"></div></h2>
-
-        <section class="relief-wrapper">
-            <div class="relief-items">
-                <div class="relief-box">
-                    <div class="relief-img-container">
-                        <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Child's Care">
-                    </div>
-                    <h5>Child's Care</h5>
-                    <p>Relieves cramps & calms the mind.</p>
-                </div>
-
-                <div class="relief-box">
-                    <div class="relief-img-container">
-                        <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Cat-Cow">
-                    </div>
-                    <h5>Cat-Cow Stretch</h5>
-                    <p>Improves blood flow & reduces back pain.</p>
-                </div>
-
-                <div class="relief-box">
-                    <div class="relief-img-container">
-                        <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Supine Twist">
-                    </div>
-                    <h5>Supine Twist</h5>
-                    <p>Relaxes lower back & cramps.</p>
-                </div>
-
-                <div class="relief-box">
-                    <div class="relief-img-container">
-                        <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Deep Breathing">
-                    </div>
-                    <h5>Deep Breathing</h5>
-                    <p>Reduces stress & eases discomfort.</p>
-                </div>
-
-                <div class="relief-box">
-                    <div class="relief-img-container">
-                        <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Heat Therapy">
-                    </div>
-                    <h5>Heat Therapy</h5>
-                    <p>Use a hot water bag for quick relief.</p>
-                </div>
+        <h2 class="section-title">Natural Pain Relief</h2>
+        <section class="pain-relief-sec">
+            <div class="relief-item">
+                <div class="relief-circle"><img src="https://lh3.googleusercontent.com/d/1Nd7rld05MfsG8s2n3rtElUsEYJbHzJyB"></div>
+                <h5>Child's Care</h5>
+                <p>Relieves cramps.</p>
             </div>
-
-            <div class="relief-banner">
-                <h4>LISTEN TO<br>YOUR BODY.<br>IT KNOWS<br>THE WAY. ♡</h4>
-                <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Listen to your body">
+            <div class="relief-item">
+                <div class="relief-circle"><img src="https://lh3.googleusercontent.com/d/18YTRLaB3ug7qbgvz7dRwEsmu6Lo6Ntz9"></div>
+                <h5>Cat-Cow Stretch</h5>
+                <p>Reduces back pain.</p>
+            </div>
+            <div class="relief-item">
+                <div class="relief-circle"><img src="https://lh3.googleusercontent.com/d/1rIJm1h8lyqMBdGFFFr1NMZJhicz9skFq"></div>
+                <h5>Supine Twist</h5>
+                <p>Relaxes cramps.</p>
+            </div>
+            <div class="relief-item">
+                <div class="relief-circle"><img src="https://lh3.googleusercontent.com/d/1EvfRrWbCy7vbznLYDTL3Ev3RpMdnasyL"></div>
+                <h5>Deep Breathing</h5>
+                <p>Reduces stress.</p>
+            </div>
+            <div class="relief-item">
+                <div class="relief-circle"><img src="https://lh3.googleusercontent.com/d/1XYiKJWQ2j32Ro5OMwlEczRw5N2bGq-dO"></div>
+                <h5>Heat Therapy</h5>
+                <p>Quick relief.</p>
+            </div>
+            <div class="side-banner">
+                <h4>LISTEN TO YOUR BODY ♡</h4>
+                <img src="https://lh3.googleusercontent.com/d/1yhAw5AZLhue_wLzbDUoh2Fsurg8sFTbK">
             </div>
         </section>
 
-        <section class="bottom-ecosystem">
-            <div class="whats-inside-wrapper">
-                <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Inside Box Preview" class="box-preview-img">
-                
-                <div class="whats-inside-content">
-                    <h3>What's Inside<br>Your FemFlow Box?</h3>
-                    <ul class="inside-list">
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                            <span>3 Types of Flow-Based Pads<br>(Light, Medium, Heavy)</span>
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                            <span>Cute Cycle Tracker</span>
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                            <span>User Guide</span>
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                            <span>Motivational Quotes<br>to uplift your days</span>
-                        </li>
-                    </ul>
-                    <a href="#" class="btn btn-pink">Shop FemFlow Pack</a>
-                </div>
-            </div>
-
-            <div class="testimonials-wrapper">
-                <h3>Loved By 1000+ Happy Women</h3>
-                <div class="test-cards-row">
-                    <div class="test-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="test-text">"Finally, a period care brand that understands our bodies!"</p>
-                        <div class="test-author">
-                            <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Ananya">
-                            <span>- Ananya, Pune</span>
-                        </div>
-                    </div>
-                    <div class="test-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="test-text">"So comfortable, no rashes, no leakage. 10/10!"</p>
-                        <div class="test-author">
-                            <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Riya">
-                            <span>- Riya, Delhi</span>
-                        </div>
-                    </div>
-                    <div class="test-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="test-text">"The tracker & quotes are such a sweet touch!"</p>
-                        <div class="test-author">
-                            <img src="https://www.japantimes.co.jp/japantimes/uploads/images/2026/03/01/524091.jpg" alt="Mehak">
-                            <span>- Mehak, Jaipur</span>
-                        </div>
-                    </div>
-                </div>
+        <section class="inside-box-sec">
+            <img src="https://lh3.googleusercontent.com/d/1KdYf_8UThFyDdsSqLAAaGtf9uYnyaHLD" class="inside-box-img">
+            <div class="inside-content">
+                <img src="https://lh3.googleusercontent.com/d/1IFyCf398asNx1krp73AbsKtdFid2_E_-" class="inside-logo">
+                <h3>What's Inside Your FemFlow Box?</h3>
+                <ul class="inside-list">
+                    <li>3 Types of Flow-Based Pads (Light, Medium, Heavy)</li>
+                    <li>Cute Cycle Tracker</li>
+                    <li>User Guide</li>
+                    <li>Motivational Quotes to uplift your days</li>
+                </ul>
+                <a href="#" class="btn-pink" style="margin-top: 20px;">Shop FemFlow Pack</a>
             </div>
         </section>
     </div>
@@ -896,58 +261,35 @@
     <footer>
         <div class="container footer-grid">
             <div class="footer-col">
-                <div class="footer-logo-text">FemFlow</div>
-                <p style="line-height: 1.6;">FemFlow is a smart, cycle-based period care system designed to make every woman's journey comfortable, confident & carefree.</p>
-                <div class="footer-social">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.279 1.148c-.038.154-.127.187-.282.115-1.055-.49-1.714-2.031-1.714-3.268 0-2.66 1.933-5.105 5.578-5.105 2.926 0 5.202 2.087 5.202 4.869 0 2.909-1.832 5.25-4.373 5.25-1.854 0-3.598-.962-4.195-2.101l-.59 2.25c-.214.819-.792 1.844-1.181 2.469 1.407.432 2.911.666 4.473.666 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
-                </div>
+                <div class="f-logo">FemFlow</div>
+                <p>A smart, cycle-based period care system designed for comfort & confidence.</p>
             </div>
-
             <div class="footer-col">
                 <h5>Quick Links</h5>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Period Care</a></li>
-                    <li><a href="#">Pain Relief</a></li>
-                    <li><a href="#">Flow Quiz</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li>Home</li><li>About Us</li><li>Shop</li><li>Blog</li>
                 </ul>
             </div>
-
             <div class="footer-col">
-                <h5>Help & Support</h5>
+                <h5>Help</h5>
                 <ul>
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">Shipping & Delivery</a></li>
-                    <li><a href="#">Returns & Refunds</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li>FAQs</li><li>Shipping</li><li>Returns</li><li>Privacy</li>
                 </ul>
             </div>
-
             <div class="footer-col">
-                <h5>Contact Us</h5>
-                <p>📧 support@femflowindia.com</p>
-                <p style="margin: 12px 0;">📞 +91 98765 43210</p>
-                <p>⏰ Mon - Sat | 10 AM - 6 PM</p>
+                <h5>Contact</h5>
+                <p>📧 support@femflow.com</p>
+                <p>📞 +91 9876543210</p>
+                <p>Made with ❤️ in India</p>
             </div>
-
             <div class="footer-col">
                 <h5>Newsletter</h5>
-                <p>Tips, offers & self-care reminders straight to your inbox.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email">
-                    <button type="submit" class="btn-pink" style="padding: 12px 18px;">Subscribe</button>
-                </form>
+                <p>Get self-care reminders.</p>
+                <div class="news-input">
+                    <input type="text" placeholder="Email">
+                    <button>Subscribe</button>
+                </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>Made with ❤️ in India 🇮🇳</p>
         </div>
     </footer>
 
