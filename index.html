@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FemFlow - One Pack. Every Flow.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-cream: #FAF6F0;
+            --primary-pink: #E04A6B;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            
+            /* Section Pastel Colors */
+            --mint-light: #E8F7F2;
+            --mint-border: #A3D9C9;
+            --pink-light: #FFEFF2;
+            --pink-border: #FFB3C1;
+            --purple-light: #F4EFFB;
+            --purple-border: #D1B3E8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- 1. TOP ANNOUNCEMENT BAR --- */
+        .top-bar {
+            background-color: #F8D7E0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 8px 10px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-dark);
+            border-bottom: 1px solid #EED1D9;
+        }
+        .top-bar span { display: flex; align-items: center; gap: 5px; }
+
+        /* --- 2. HEADER & NAVBAR --- */
+        header {
+            padding: 15px 0;
+            background: transparent;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-container img {
+            height: 50px;
+            object-fit: contain;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-pink);
+        }
+        .nav-links a.active {
+            border-bottom: 2px solid var(--primary-pink);
+            padding-bottom: 4px;
+        }
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .nav-icons img {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+        }
+
+        /* --- 3. HERO SECTION --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px 0 60px 0;
+            position: relative;
+        }
+        .hero-left {
+            flex: 1;
+            max-width: 500px;
+        }
+        .hero-title {
+            font-family: var(--font-head);
+            font-size: 64px;
+            line-height: 1.1;
+            color: var(--primary-pink);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .hero-title span {
+            color: #3A3330;
+            font-style: normal;
+        }
+        .hero-desc {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 400px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .btn {
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-pink {
+            background-color: var(--primary-pink);
+            color: #fff;
+            border: 1px solid var(--primary-pink);
+        }
+        .btn-pink:hover {
+            background-color: #C83957;
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-pink);
+            border: 1px solid var(--primary-pink);
+        }
+        .btn-outline:hover {
+            background-color: var(--primary-pink);
+            color: #fff;
+        }
+        .hero-features {
+            display: flex;
+            gap: 25px;
+        }
+        .feature-item {
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+        .feature-item img {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 5px;
+            object-fit: contain;
+        }
+        .hero-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+        }
+        .hero-product-img {
+            max-width: 100%;
+            height: auto;
+            width: 650px;
+            object-fit: contain;
+        }
+
+        /* --- COMMON SECTION HEADINGS --- */
+        .section-title {
+            text-align: center;
+            font-family: var(--font-head);
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555;
+            margin: 60px 0 30px 0;
+            position: relative;
+        }
+        .section-title::after {
+            content: '🌱'; /* Placeholder floral/leaf icon */
+            display: block;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* --- 4. FLOW CARDS SECTION --- */
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .flow-card {
+            border-radius: 12px;
+            padding: 30px 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 220px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid;
+        }
+        .flow-card.light { background-color: var(--mint-light); border-color: var(--mint-border); }
+        .flow-card.medium { background-color: var(--pink-light); border-color: var(--pink-border); }
+        .flow-card.heavy { background-color: var(--purple-light); border-color: var(--purple-border); }
+        
+        .flow-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .flow-card.light h3 { color: #2D7A60; }
+        .flow-card.medium h3 { color: #A8324D; }
+        .flow-card.heavy h3 { color: #6A438C; }
+        
+        .flow-card p {
+            font-size: 12px;
+            color: var(--text-muted);
+            max-width: 60%;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .flow-card .btn-learn {
+            align-self: flex-start;
+            padding: 8px 16px;
+            font-size: 11px;
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .flow-card.light .btn-learn { background-color: #62B598; }
+        .flow-card.medium .btn-learn { background-color: #D65A75; }
+        .flow-card.heavy .btn-learn { background-color: #9A6BB8; }
+        
+        .flow-card-img {
+            position: absolute;
+            right: -10px;
+            bottom: -10px;
+            width: 140px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* --- 5. EDUCATION & BLOG GRID --- */
+        .edu-wrapper {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            align-items: stretch;
+            margin-bottom: 60px;
+        }
+        .edu-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+        }
+        .edu-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        .edu-info {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .edu-title {
+            font-size: 12px;
+            color: var(--primary-pink);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .edu-desc {
+            font-size: 13px;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        .edu-link {
+            font-size: 12px;
+            color: var(--primary-pink);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        /* Quiz Highlight Card */
+        .quiz-card {
+            background-color: #FFF3F5;
+            border: 1px solid #FFCCD5;
+            border-radius: 8px;
+            padding: 25px 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .quiz-card h4 {
+            font-size: 16px;
+            color: var(--primary-pink);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .quiz-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        /* --- 6. NATURAL PAIN RELIEF --- */
+        .relief-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        .relief-items {
+            display: flex;
+            justify-content: space-between;
+            flex: 1;
+            gap: 15px;
+        }
+        .relief-box {
+            text-align: center;
+            max-width: 130px;
+        }
+        .relief-img-container {
+            width: 110px;
+            height: 110px;
+            background-color: #F4ECE1;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .relief-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .relief-box h5 {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .relief-box p {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+        .relief-banner {
+            background-color: #F8D7E0;
+            border-radius: 8px;
+            padding: 30px 20px;
+            width: 250px;
+            text-align: center;
+            font-family: var(--font-head);
+            color: #555;
+            position: relative;
+        }
+        .relief-banner h4 {
+            font-size: 20px;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        .relief-banner img {
+            width: 140px;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        /* --- 7. PRODUCT CONTENT & TESTIMONIALS --- */
+        .proof-section {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1.5fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 80px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+        }
+        .box-preview-img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        .whats-inside h3 {
+            font-family: var(--font-head);
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .inside-list {
+            list-style: none;
+        }
+        .inside-list li {
+            font-size: 13px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+        }
+        .inside-list li img { width: 18px; height: 18px; }
+        
+        .testimonials h3 {
+            font-family: var(--font-head);
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .test-card {
+            background: var(--bg-cream);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 11px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .stars { color: #FFB800; font-size: 12px; margin-bottom: 8px; }
+        .test-text { color: var(--text-dark); font-style: italic; margin-bottom: 15px; }
+        .test-author { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        .test-author img { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; }
+
+        /* --- 8. FOOTER --- */
+        footer {
+            background-color: var(--bg-cream);
+            border-top: 1px solid #EAE2D5;
+            padding: 60px 0 40px 0;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.5fr 1.5fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .footer-logo {
+            font-family: var(--font-head);
+            font-size: 28px;
+            color: var(--primary-pink);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .footer-col h5 {
+            font-size: 13px;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { text-decoration: none; color: var(--text-muted); transition: 0.2s; }
+        .footer-col ul li a:hover { color: var(--primary-pink); }
+        
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+        .newsletter-form input {
+            padding: 10px;
+            border: 1px solid #DCD5C9;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+            width: 100%;
+            font-size: 12px;
+            background: #fff;
+        }
+        .newsletter-form button {
+            border-radius: 0 4px 4px 0;
+            padding: 10px 20px;
+            font-size: 12px;
+            border: none;
+        }
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <span>⭐ Free Shipping on all orders</span>
+        <span>♡ Made for Indian Cycles</span>
+        <span>🛡️ 100% Safe & Rash-Free</span>
+    </div>
+
+    <div class="container">
+        <header>
+            <nav class="navbar">
+                <a href="#" class="logo-container">
+                    <img src="https://via.placeholder.com/180x60/FAF6F0/E04A6B?text=FemFlow+Logo" alt="FemFlow Logo">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Period Care ﹀</a></li>
+                    <li><a href="#">Pain Relief ﹀</a></li>
+                    <li><a href="#">Flow Quiz</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <img src="https://via.placeholder.com/24x24/FAF6F0/333333?text=U" alt="User">
+                    <img src="https://via.placeholder.com/24x24/FAF6F0/333333?text=C" alt="Cart">
+                </div>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-left">
+                <h1 class="hero-title"><span>One Pack.</span><br>Every Flow.</h1>
+                <p class="hero-desc">A smart, cycle-based period care system designed for every phase of your flow.</p>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-pink">Explore Your Flow</a>
+                    <a href="#" class="btn btn-outline">Shop Now</a>
+                </div>
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/40x40/FAF6F0/E04A6B?text=C" alt="Chemical Free"><br>Chemical<br>Free
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/40x40/FAF6F0/E04A6B?text=R" alt="Rash Free"><br>Rash-Free<br>Comfort
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/40x40/FAF6F0/E04A6B?text=A" alt="Super Absorbent"><br>Super<br>Absorbent
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/40x40/FAF6F0/E04A6B?text=I" alt="Made in India"><br>Made in<br>India
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <img src="https://via.placeholder.com/700x500/EEDDDB/333333?text=Hero+Product+Box+%2B+Pads+PNG" alt="FemFlow Pack Box" class="hero-product-img">
+            </div>
+        </section>
+
+        <h2 class="section-title">Designed For Your Unique Flow</h2>
+
+        <section class="flow-grid">
+            <div class="flow-card light">
+                <div>
+                    <h3>🌿 Light Flow</h3>
+                    <p>For start & end days<br>Ultra-thin comfort</p>
+                </div>
+                <a href="#" class="btn-learn">Learn More</a>
+                <img src="https://via.placeholder.com/150x250/D1F0E5/2D7A60?text=Light+Pad" alt="Light Flow Pad" class="flow-card-img">
+            </div>
+
+            <div class="flow-card medium">
+                <div>
+                    <h3>🌸 Medium Flow</h3>
+                    <p>For regular days<br>Balanced protection</p>
+                </div>
+                <a href="#" class="btn-learn">Learn More</a>
+                <img src="https://via.placeholder.com/150x250/FFD9E0/A8324D?text=Medium+Pad" alt="Medium Flow Pad" class="flow-card-img">
+            </div>
+
+            <div class="flow-card heavy">
+                <div>
+                    <h3>🌺 Heavy Flow</h3>
+                    <p>For heavy days<br>Maximum absorbency</p>
+                </div>
+                <a href="#" class="btn-learn">Learn More</a>
+                <img src="https://via.placeholder.com/150x250/E3D6F5/6A438C?text=Heavy+Pad" alt="Heavy Flow Pad" class="flow-card-img">
+            </div>
+        </section>
+
+        <h2 class="section-title">Period Care & Education</h2>
+
+        <section class="edu-wrapper">
+            <div class="edu-card">
+                <img src="https://via.placeholder.com/250x180/CCCCCC/666666?text=Woman+Calendar" alt="Period Care Tips" class="edu-img">
+                <div class="edu-info">
+                    <div>
+                        <div class="edu-title">Period Care Tips</div>
+                        <p class="edu-desc">Essential hygiene tips for a happy & healthy you.</p>
+                    </div>
+                    <a href="#" class="edu-link">READ MORE →</a>
+                </div>
+            </div>
+
+            <div class="edu-card">
+                <img src="https://via.placeholder.com/250x180/FFD9E0/A8324D?text=Uterus+Illustration" alt="Understand Cycle" class="edu-img">
+                <div class="edu-info">
+                    <div>
+                        <div class="edu-title">Understand Your Cycle</div>
+                        <p class="edu-desc">Learn about your body, hormones & flow changes.</p>
+                    </div>
+                    <a href="#" class="edu-link">READ MORE →</a>
+                </div>
+            </div>
+
+            <div class="edu-card">
+                <img src="https://via.placeholder.com/250x180/CCCCCC/666666?text=Healthy+Food" alt="Diet & Nutrition" class="edu-img">
+                <div class="edu-info">
+                    <div>
+                        <div class="edu-title">Diet & Nutrition</div>
+                        <p class="edu-desc">Foods that help reduce bloating & fatigue.</p>
+                    </div>
+                    <a href="#" class="edu-link">READ MORE →</a>
+                </div>
+            </div>
+
+            <div class="edu-card">
+                <img src="https://via.placeholder.com/250x180/CCCCCC/666666?text=Self+Care+Hands" alt="Self Care" class="edu-img">
+                <div class="edu-info">
+                    <div>
+                        <div class="edu-title">Self Care</div>
+                        <p class="edu-desc">Simple self-care tips for your best days.</p>
+                    </div>
+                    <a href="#" class="edu-link">READ MORE →</a>
+                </div>
+            </div>
+
+            <div class="quiz-card">
+                <h4>FLOW QUIZ</h4>
+                <p>Not sure which flow is yours?<br><br>Take our quick quiz and find out!</p>
+                <a href="#" class="btn btn-pink" style="width:100%; padding: 10px 0;">Take Quiz Now</a>
+            </div>
+        </section>
+
+        <h2 class="section-title">Natural Pain Relief</h2>
+
+        <section class="relief-wrapper">
+            <div class="relief-items">
+                <div class="relief-box">
+                    <div class="relief-img-container">
+                        <img src="https://via.placeholder.com/120/E8DCC4/333333?text=Pose+1" alt="Child's Care">
+                    </div>
+                    <h5>Child's Care</h5>
+                    <p>Relieves cramps & calms the mind.</p>
+                </div>
+
+                <div class="relief-box">
+                    <div class="relief-img-container">
+                        <img src="https://via.placeholder.com/120/E8DCC4/333333?text=Pose+2" alt="Cat-Cow">
+                    </div>
+                    <h5>Cat-Cow Stretch</h5>
+                    <p>Improves blood flow & reduces back pain.</p>
+                </div>
+
+                <div class="relief-box">
+                    <div class="relief-img-container">
+                        <img src="https://via.placeholder.com/120/E8DCC4/333333?text=Pose+3" alt="Supine Twist">
+                    </div>
+                    <h5>Supine Twist</h5>
+                    <p>Relaxes lower back & cramps.</p>
+                </div>
+
+                <div class="relief-box">
+                    <div class="relief-img-container">
+                        <img src="https://via.placeholder.com/120/E8DCC4/333333?text=Pose+4" alt="Deep Breathing">
+                    </div>
+                    <h5>Deep Breathing</h5>
+                    <p>Reduces stress & eases discomfort.</p>
+                </div>
+
+                <div class="relief-box">
+                    <div class="relief-img-container">
+                        <img src="https://via.placeholder.com/120/FFD9E0/A8324D?text=Hot+Bag" alt="Heat Therapy">
+                    </div>
+                    <h5>Heat Therapy</h5>
+                    <p>Use a hot water bag for quick relief.</p>
+                </div>
+            </div>
+
+            <div class="relief-banner">
+                <h4>LISTEN TO<br>YOUR BODY.<br>IT KNOWS<br>THE WAY. ♡</h4>
+                <img src="https://via.placeholder.com/150x150/F8D7E0/333333?text=Illustration" alt="Listen to your body">
+            </div>
+        </section>
+
+        <section class="proof-section">
+            <div class="box-preview">
+                <img src="https://via.placeholder.com/400x300/EEDDDB/333333?text=Open+FemFlow+Box+Image" alt="Inside Box Preview" class="box-preview-img">
+            </div>
+
+            <div class="whats-inside">
+                <h3>What's Inside<br>Your FemFlow Box?</h3>
+                <ul class="inside-list">
+                    <li>
+                        <img src="https://via.placeholder.com/20/E04A6B/FFFFFF?text=✓" alt="tick">
+                        3 Types of Flow-Based Pads<br>(Light, Medium, Heavy)
+                    </li>
+                    <li>
+                        <img src="https://via.placeholder.com/20/E04A6B/FFFFFF?text=✓" alt="tick">
+                        Cute Cycle Tracker
+                    </li>
+                    <li>
+                        <img src="https://via.placeholder.com/20/E04A6B/FFFFFF?text=✓" alt="tick">
+                        User Guide
+                    </li>
+                    <li>
+                        <img src="https://via.placeholder.com/20/E04A6B/FFFFFF?text=✓" alt="tick">
+                        Motivational Quotes<br>to uplift your days
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-pink" style="margin-top: 10px;">Shop FemFlow Pack</a>
+            </div>
+
+            <div class="testimonials">
+                <h3>Loved By 1000+ Happy Women</h3>
+                <div class="test-grid">
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="test-text">"Finally, a period care brand that understands our bodies!"</p>
+                        <div class="test-author">
+                            <img src="https://via.placeholder.com/30" alt="Ananya">
+                            <span>- Ananya, Pune</span>
+                        </div>
+                    </div>
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="test-text">"So comfortable, no rashes, no leakage. 10/10!"</p>
+                        <div class="test-author">
+                            <img src="https://via.placeholder.com/30" alt="Riya">
+                            <span>- Riya, Delhi</span>
+                        </div>
+                    </div>
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="test-text">"The tracker & quotes are such a sweet touch!"</p>
+                        <div class="test-author">
+                            <img src="https://via.placeholder.com/30" alt="Mehak">
+                            <span>- Mehak, Jaipur</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">FemFlow</div>
+                <p>FemFlow is a smart, cycle-based period care system designed to make every woman's journey comfortable, confident & carefree.</p>
+                <div class="footer-social">
+                    <span>📷</span> <span>📘</span> <span>📌</span>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Period Care</a></li>
+                    <li><a href="#">Pain Relief</a></li>
+                    <li><a href="#">Flow Quiz</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Help & Support</h5>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping & Delivery</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Contact Us</h5>
+                <p>📧 support@femflowindia.com</p>
+                <p style="margin: 10px 0;">📞 +91 98765 43210</p>
+                <p>⏰ Mon - Sat | 10 AM - 6 PM</p>
+                <p style="margin-top: 15px;">Made with ❤️ in India 🇮🇳</p>
+            </div>
+
+            <div class="footer-col">
+                <h5>Newsletter</h5>
+                <p>Tips, offers & self-care reminders straight to your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit" class="btn-pink">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
